@@ -550,8 +550,8 @@ for(screen in unique(screen_table$screen_id))
   saveRDS(EC50_dataframe_full,file = paste0(dirCur,"/www/Results/Curve_fits/", screen,"_DSRT_analysis_table_Rpipeline.rds"))
   
 
-    EC50_dataframe_full$screen=screen
-    cpoxpo <<-EC50_dataframe_full
+    # EC50_dataframe_full$screen=screen
+    # cpoxpo <<-EC50_dataframe_full
     # write.xlsx(cpoxpo,paste0(dirCur,"/www/Results/Curve_fits/", screen,"cpoxpo.xlsx"))
   
   unlink("./www/Results/Curve_fits/IC50", recursive=T, force = T)

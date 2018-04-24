@@ -205,17 +205,17 @@ shinyServer(function(input, output, session) {
                    
                  })
     
-    observeEvent(input$start, {
-      cpoxpo3 <<- cpoxpo
-      # cpoxpo3=read.xlsx(paste0(dirCur,"/www/Results/Curve_fits/", screen,"cpoxpo.xlsx"))
-      mydb = dbConnect(MySQL(),user='breezeuser',password='Breezeshinyatlas123!!!',dbname='breezedata', host='127.0.0.1')
-      # cpoxproab = smartbind(cpoxpro77,cpoxpo3)
-      dbWriteTable(mydb, name='Screensssss', value=cpoxpo3,overwrite = F,append=T)
-      # data69 <- dbGetQuery(mydb, "SELECT * FROM Screensss")
-      dbDisconnect(mydb)
-      # write.xlsx(cpoxpo3,"data69.xlsx")
-      
-    })
+    # observeEvent(input$start, {
+    #   cpoxpo3 <<- cpoxpo
+    #   # cpoxpo3=read.xlsx(paste0(dirCur,"/www/Results/Curve_fits/", screen,"cpoxpo.xlsx"))
+    #   mydb = dbConnect(MySQL(),user='breezeuser',password='Breezeshinyatlas123!!!',dbname='breezedata', host='127.0.0.1')
+    #   # cpoxproab = smartbind(cpoxpro77,cpoxpo3)
+    #   dbWriteTable(mydb, name='Screensssss', value=cpoxpo3,overwrite = F,append=T)
+    #   # data69 <- dbGetQuery(mydb, "SELECT * FROM Screensss")
+    #   dbDisconnect(mydb)
+    #   # write.xlsx(cpoxpo3,"data69.xlsx")
+    #   
+    # })
     
     #output$distPlot <- renderPlot({
     #  
