@@ -1,0 +1,135 @@
+starting worker for localhost:11039 
+Type: EXEC 
+Type: EXEC 
+Loading required package: drc
+Loading required package: MASS
+
+'drc' has been loaded.
+
+Please cite R and 'drc' if used for a publication,
+for references type 'citation()' and 'citation('drc')'.
+
+
+Attaching package: ‘drc’
+
+The following objects are masked from ‘package:stats’:
+
+    gaussian, getInitial
+
+Loading required package: caTools
+Loading required package: ggplot2
+Loading required package: gsubfn
+Loading required package: proto
+Loading required package: data.table
+Type: EXEC 
+Type: EXEC 
+Garbage collection 37 = 21+7+9 (level 2) ... 
+69.2 Mbytes of cons cells used (60%)
+13.3 Mbytes of vectors used (55%)
+[1] "FIMM000344,   Vinorelbine"
+  inhibition  dose logconc viability inhibition2 viability2
+5  -7.834907     1       0 107.83491   -7.834907  107.83491
+4  -6.693514    10       1 106.69351   -6.693514  106.69351
+3  21.319990   100       2  78.68001   21.319990   78.68001
+2  24.880432  1000       3  75.11957   24.880432   75.11957
+1  23.864585 10000       4  76.13542   23.864585   76.135[1[[1] "FIMM000344   TRUE   0"
+Type: EXEC GGarbage collection 41 = 24+7+10 (level 2) ... 
+75.2 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM000519,   Prednisolone"
+  inhibition  dose logconc viability inhibition2 viability2
+5   6.961098     1       0  93.03890    6.961098   93.03890
+4   5.564021    10       1  94.43598    5.564021   94.43598
+3 -14.890721   100       2 114.89072  -14.890721  114.89072
+2   8.348224  1000       3  91.65178    8.348224   91.65178
+1   3.193200 10000       4  96.80680    3.193200   96.8[1][1] "FIMM003787   TRUE   0"
+Type: EXEC 
+Garbage collection 46 = 28+7+11 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM000370,   Vinblastine"
+  inhibition  dose logconc viability inhibition2 viability2
+5  -20.78371 1e-01      -1 120.78371   -20.78371  120.78371
+4  -15.01627 1e+00       0 115.01627   -15.01627  115.01627
+3   13.67626 1e+01       1  86.32374    13.67626   86.32374
+2   21.83136 1e+02       2  78.16864    21.83136   78.16864
+1   16.24228 1e+03       3  83.75772    16.24228   83.75772
+[1] "FIMM000370   FALSE   9"
+Type: EXEC 
+Garbage collection 50 = 31+7+12 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM100368,   Capecitabine"
+  inhibition  dose logconc viability inhibition2 viability2
+5 22.2018715     1       0  77.79813  22.2018715   77.79813
+4 -6.9744602    10       1 106.97446  -6.9744602  106.97446
+3 10.2941802   100       2  89.70582  10.2941802   89.70582
+2 -8.0285837  1000       3 108.02858  -8.0285837  108.02858
+1 -0.7676096 10000       4 100.76761  -0.7676096  100.76761
+[1] "FIMM100368   FALSE   9"
+Type: EXEC 
+Garbage collection 54 = 34+7+13 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM003724,   Decitabine"
+  inhibition  dose logconc viability inhibition2 viability2
+5   8.810599     1       0  91.18940    8.810599   91.18940
+4 -10.921490    10       1 110.92149  -10.921490  110.92149
+3   3.304966   100       2  96.69503    3.304966   96.69503
+2  14.059016  1000       3  85.94098   14.059016   85.94098
+1 -36.901769 10000       4 136.90177  -36.901769  136.90177
+[1] "FIMM003724   FALSE   9"
+Type: EXEC 
+Garbage collection 58 = 37+7+14 (level 2) ... 
+7Garbage collection 61 = 40+7+14 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM000464,   Imiquimod"
+  inhibition    dose  logconc viability inhibition2 viability2
+1  -2.778635    0.25 -0.60206 102.77864   -2.778635  102.77864
+2 -29.522139    2.50  0.39794 129.52214  -29.522139  129.52214
+3  -6.941543   25.00  1.39794 106.94154   -6.941543  106.94154
+4  -7.226317  250.00  2.39794 107.22632   -7.226317  107.22632[1] "FIMM023825   FALSE   9"
+Type: EXEC 
+Garbage collection 62 = 40+7+15 (level 2) ... 
+75.3Type: EXEC 
+Garbage collection 65 = 42+8+15 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM000406,   Cytarabine"
+  inhibition  dose logconc viability inhibition2 viability2
+1 -13.652872     1       0 113.65287  -13.652872  113.65287
+2  -1.596670    10       1 101.59667   -1.596670  101.59667
+3   9.162739   100       2  90.83726    9.162739   90.83726
+4  25.948335  1000       3  74.05166   25.948335   74.0516[1] "FIMM023805   TRUE   1"
+Type: EXEC 
+Garbage collection 66 = 42+8+16 (level 2) ... 
+75.Type: EXEC 
+Garbage collection 69 = 45+8+16 (level 2) ... 
+75.3 Mbytes of cons cells used (65%)
+14.3 Mbytes of vectors used (59%)
+[1] "FIMM023831,   Bleomycin"
+  inhibition  dose logconc viability inhibition2 viability2
+1  -8.463400     1       0 108.46340   -8.463400  108.46340
+2 -13.624548    10       1 113.62455  -13.624548  113.62455
+3  -8.568277   100       2 108.56828   -8.568277  108.56828
+4  26.017998  1000       3  73.98200   26.017998   73.9820[1] "FIMM003736   TRUE   0"
+Type: DONE 
+Warning messages:
+1: no DISPLAY variable so Tk is not available 
+2: Removed 1 rows containing missing values (geom_point). 
+3: Removed 1 rows containing missing values (geom_point). 
+. 
+3: Removed 1 rows containing missing values (geom_point). 
+4: Removed 1 rows containing missing values (geom_point). 
+5: Removed 1 rows containing missing values (geom_point). 
+0 1e+03       3  97.76753    2.232470   97.76753
+4   9.206374 1e+04       4  90.79363    9.206374   90.79363
+5   6.791152 1e+05       5  93.20885    6[1] "FIMM001244   T[1] "FIMMType: DONE 
+WarningType: DONE 
+Warning messages:
+1: no DISPLAY variable so Tk is not available 
+2: Removed 1 rows containing missing values (geom_point). 
+3: Removed 1 rows containing missing values (geom_point). 
+4: Removed 1 rows containing missing values (geom_point). 
+5: Removed 1 rows containing missing values (geom_point). 

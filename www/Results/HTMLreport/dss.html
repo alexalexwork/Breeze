@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSRT</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<style>
+ #particles-js{ position:fixed; top:0; left:0; width: 100%; height: 100%;  z-index:1;} 
+#toplevel{ position:relative; z-index:100;} 
+	</style>
+
+</head>
+
+<body>
+<div id="particles-js" style = "z-index:-1000"></div>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>DSRT</span>Pipeline</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<!--<li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>-->
+			<li><a href="qc.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Quality Control</a></li>
+			<li><a href="cf.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Curve Fitting</a></li>
+			<li class="active"><a href="dss.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Drug Sensitivity Score</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="acknowl.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Acknowledgements</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">	
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Drug Sensitivity Score</li>
+			</ol>
+		</div><!--/.row-->
+		
+			<br>
+		        <div class="row">
+            <div class="col-sm-8 col-sm-offset-0 ">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <svg class="glyph stroked gear">
+                            <use xlink:href="#stroked-gear" />
+                        </svg> Drug Sensitivity Score</div>
+                    <div class="panel-body">
+					<div class="row dss_box">
+					<div class="col-sm-9 col-sm-offset-0 ">
+                        <p style="font-size:16px;"><b>Drug Sensitivity Score:</b>  
+						The continuous model estimation and interpolation effectively summarize the complex dose-response relationship into a single response metric, named DSS. Mathematical model estimation and continuous interpolation makes the scoring approach robust against sources of technical variability and widely applicable to various experimental settings, both in cancer cell line models and primary patient-derived cells. 
+						                   	</div>	
+					<div class="col-sm-3 col-sm-offset-0 ">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="line-chart" height="120" width="180"></canvas>
+						</div>
+						</div>
+					</div>
+				   </div>
+                </div>
+            </div>
+			<div class="col-md-3">
+		
+                        
+
+
+
+						
+			
+</div>
+            <div class="col-md-10">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <svg class="glyph stroked clipboard with paper">
+                            <use xlink:href="#stroked-clipboard-with-paper" />
+                        </svg> Report links</div>
+                    <div class="panel-body">
+                        
+                                <div class="form-group">
+                                    <div class="col-md-9">
+                                        <p style = "font-size:15px;">
+										This section depicts the results of the Drug Sensitivity Scoring algoritm. The heatmap and waterfall plots, which allow interactive exploration of DSS results can be found below. </p>
+                                    </div>
+                                    <br> <br> <br>
+                                </div>
+								<table id = "pipelineFiles" data-toggle="table" data-row-style="rowStyle" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" 
+								data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+								<thead><tr><th>PDF waterfall plots</th><th>HTML waterfall plots</th><th>HTML Heatmap</th><th>HTML sDSS Heatmap</th><th>HTML summary Tree</th><th>DSS scores</th><th>sDSS scores</th></tr></thead>
+								<tbody></table>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!--/.col-->
+
+
+			
+            <!--/.col-->
+
+
+            <div id="contentDiv"></div>
+
+
+
+        </div>
+		
+
+	</div><!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/bootstrap-table.js"></script>
+	<script>
+		!function(a){a(document).on("click","ul.nav li.parent > a > span.icon",function(){a(this).find("em:first").toggleClass("glyphicon-minus")}),
+		a(".sidebar span.icon").find("em:first").addClass("glyphicon-plus")}(window.jQuery);
+		$(window).on("resize",function(){$(window).width()>768&&$("#sidebar-collapse").collapse("show")}),
+		$(window).on("resize",function(){$(window).width()<=767&&$("#sidebar-collapse").collapse("hide")});
+		
+		obj = $.getJSON("DSS.json");
+		//callback to get repsponce from server to retrieve obj.
+		obj.done( function(json) {
+		var len_;
+				newrow = '<tr><td><a download href="../DSS/'+ obj.responseJSON.PDFname +'" ><img src = "./imgs/pdf.png"></img></a></td><td><a download href="../DSS/'+ obj.responseJSON.HTMLname +'" ><img src = "./imgs/html2_.png"></img></a></td><td><a download href="../DSS/'+ obj.responseJSON.HEATname +'" ><img src = "./imgs/html2_.png"></img></a></td><td><a download href="../DSS/'+ obj.responseJSON.HEATname2 +'" ><img src = "./imgs/html2_.png"></img></a></td><td><a download href="../DSS/'+ obj.responseJSON.Treename +'" ><img src = "./imgs/html2_.png"></img></a></td><td><a href="../DSS/'+ obj.responseJSON.XLSXname +'" ><img src = "./imgs/xlsx_.png"></img></a></td><td><a href="../DSS/'+ obj.responseJSON.XLSXname2 +'" ><img src = "./imgs/xlsx_.png"></img></a></td></tr>'
+				$("#pipelineFiles tbody").append(newrow);
+				//dispay table
+				$(function(){$('[data-toggle="table"]').bootstrapTable()});	
+			});
+		var lineChartData={labels:["","","","","","",""],datasets:[{label:"My Second dataset",fillColor:"rgba(220,220,220,0.2)",strokeColor:"rgba(220,220,220,1)",pointColor:"rgba(220,220,220,1)",pointStrokeColor:"#fff",pointHighlightFill:"#fff",pointHighlightStroke:"rgba(220,220,220,1)",data:[0,1,6,20,40,58,60]},{label:"My Second dataset",fillColor:"rgba(48, 164, 255, 0.2)",strokeColor:"rgba(48, 164, 255, 1)",pointColor:"rgba(48, 164, 255, 1)",pointStrokeColor:"#fff",pointHighlightFill:"#fff",pointHighlightStroke:"rgba(48, 164, 255, 1)",data:[0,1,10,45,85,98,100]}]},chart1=document.getElementById("line-chart").getContext("2d");window.myLine=new Chart(chart1).Line(lineChartData,{responsive:!0});
+	</script>	
+	
+	<script src="js/particles.min.js"></script>
+	<script>
+	particlesJS("particles-js",{particles:{number:{value:60,density:{enable:!0,value_area:800}},color:{value:"#30a5ff"},shape:{type:"circle",stroke:{width:0,color:"#000000"},polygon:{nb_sides:5},image:{src:"img/github.svg",width:100,height:100}},opacity:{value:.2,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:40,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#30a5ff",opacity:.2,width:1},move:{enable:!0,speed:6,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1,mode:"repulse"},onclick:{enable:!1,mode:"push"},resize:!1},modes:{grab:{distance:400,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!1});
+	</script>
+	
+</body>
+</html> 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSRT</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>DSRT</span>pipeline</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li><a href="qc.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Quality Control</a></li>
+			<li><a href="cf.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Curve Fitting</a></li>
+			<li><a href="dss.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Drug Sensitivity Score</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="acknowl.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Acknowledgements</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">DSRT</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<br><br>
+		
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-red panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class = "contparts">
+							<div class="mar0">Quality Control<div id="doneQC" class="no"></div></div>
+							<div class="mar0">Curve fitting<div id="doneCF" class="no"></div></div>
+							<div class="mar0">DSS<div id="doneDSS" class="no"></div></div>
+							</div>			
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-blue panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large" id = "numofscr"></div>
+							<div class="text-muted">Screens</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked table"><use xlink:href="#stroked-table"/></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large" id = "numofpl"></div>
+							<div class="text-muted">Plates</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAA2CAMAAACr+9QzAAAAyVBMVEUAAAD4+Pj3+Pj59vb39/fw8PDu7+/q6url5eXs7Oz7eHj4wcH7aGf7UE/6Z2b4xcX7amn7UVD7T074ycn09PTr6+v7VFP6bGz4z8/7bm3n5+f7b278oKD7WFfyamrnwcHxUE/oTUzoaWj7WlroUE/td3ft0dH5iorrT07pWVjtdnbyfHvuenrtT074T07oUlHwiYj3UE/pVlXsdHPrZ2bwUE/3UVDsc3Lwk5PvUE/scXHpWFfpVVTrZGTxlJPvh4bsbGzqXFvuf3+pe6JvAAAAAXRSTlMAQObYZgAAAAFiS0dEIcRsDRYAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAF1SURBVEjH7dLZVsIwFAXQpK20IIWmKIITjaYaVETqWBBF//+jTJChgTzkBl9cq+e9e517GoTK/O/geXYVHAe79grG3jKuLYILiGWTNWCNqIRns+wGIZXdCfA1GsLz9mAE1iAVkKFt4fmVnQ/xA0AP19EZ1SAwJ2r7OsMPAt+YqIeN5ibgSiIwniMiJG60NC3MawiCxHGkIgeHUEIkVJGKIIwHjdpkgRx1HGc5LahFl6wSd5ueY3FIgSBh3Gji1SHHxkSbFLP4OyDiRCVElXoLOGeNbCWOOlXZwvRtnZ6FGuS8B3meXQ1BEnrRMyfQpY5glKZXxsS1juCU9W+MCXQb6gjaT80JdDfYJjiFtBAGvw+VKsmQchiBHjgfqS0YzSCHyB4ZG4zULbJHGIHQE6X8OfkVXhhlLHuFEuhNfsfyPE/yoVjThkBozKUiISqSjS0Icc0ckAKjE9gfWSd9F4BAOJt+WBIIfc6mEzb8mn1bC2XK/Gl+ACxBMiQxxy/ZAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTEwLTEyVDExOjEzOjM2LTA0OjAws63KigAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0xMC0xMlQxMToxMzozNi0wNDowMMLwcjYAAAAASUVORK5CYII="></img>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large" id = "numofdrugs"></div>
+							<div class="text-muted">Drugs</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Reports statistics</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+		
+		
+								
+
+	</div>	<!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+		$('#calendar').datepicker({
+		});
+
+		!function ($) {
+		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+		        $(this).find('em:first').toggleClass("glyphicon-minus");      
+		    }); 
+		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+			 
+	
+		obj = $.getJSON("QC.json");
+		//callback to get repsponce from server to retrieve obj.
+		obj.done( function(json) {
+				
+			numberofscreens = obj.responseJSON.numberofscreens; 
+			numberofplates = obj.responseJSON.numberofplates;
+			numberofdrugs = obj.responseJSON.numberofdrugs;
+			doneQC = obj.responseJSON.doneQC; 
+					
+			$("#numofscr").append("<p>" + numberofscreens + "</p>");
+			$("#numofpl").append("<p>" + numberofplates + "</p>");
+			$("#numofdrugs").append("<p>" + numberofdrugs + "</p>");
+			if(doneQC)$("#doneQC").removeClass("no").addClass("yes");
+			
+			obj2 = $.getJSON("CF.json");
+			obj2.done( function(json) {
+				doneCF = obj2.responseJSON.doneCF;  
+				if(doneCF)$("#doneCF").removeClass("no").addClass("yes");
+				
+					obj3 = $.getJSON("DSS.json");
+					obj3.done( function(json) {
+						doneDSS = obj3.responseJSON.doneDSS;
+						if(doneDSS)$("#doneDSS").removeClass("no").addClass("yes");
+					})
+			})
+		})
+		
+		
+	</script>	
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DSRT</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!--Icons-->
+    <script src="js/lumino.glyphs.js"></script>
+
+
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	
+
+	
+<style>
+table{
+font-size:	10px !important;
+}
+</style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>DSRT</span>Pipeline</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <svg class="glyph stroked male-user">
+                                <use xlink:href="#stroked-male-user"></use>
+                            </svg> User <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">
+                                    <svg class="glyph stroked male-user">
+                                        <use xlink:href="#stroked-male-user"></use>
+                                    </svg> Profile</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg class="glyph stroked gear">
+                                        <use xlink:href="#stroked-gear"></use>
+                                    </svg> Settings</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg class="glyph stroked cancel">
+                                        <use xlink:href="#stroked-cancel"></use>
+                                    </svg> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <form role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+        <ul class="nav menu">
+            <li>
+                <a href="index.html">
+                    <svg class="glyph stroked dashboard-dial">
+                        <use xlink:href="#stroked-dashboard-dial"></use>
+                    </svg> Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="qc.html">
+                    <svg class="glyph stroked calendar">
+                        <use xlink:href="#stroked-calendar"></use>
+                    </svg> Quality Control</a>
+            </li>
+            <li>
+                <a href="cf.html">
+                    <svg class="glyph stroked table">
+                        <use xlink:href="#stroked-table"></use>
+                    </svg> Curve Fitting</a>
+            </li>
+            <li>
+                <a href="dss.html">
+                    <svg class="glyph stroked line-graph">
+                        <use xlink:href="#stroked-line-graph"></use>
+                    </svg> Drug Sensitivity Score</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+			<li><a href="acknowl.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Acknowledgements</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><button type="submit" class="btn btn-primary downbutton">Download full report</button></li>
+        </ul>
+
+
+    </div>
+    <!--/.sidebar-->
+
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">
+                        <svg class="glyph stroked home">
+                            <use xlink:href="#stroked-home"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="active">Quality control</li>
+            </ol>
+        </div>
+        <!--/.row-->
+
+        <div class="row">
+            <h1></h1>
+        </div>
+        <!--/.row-->
+
+        <div class="row">
+
+            <div class="col-sm-6 col-sm-offset-2">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <svg class="glyph stroked gear">
+                            <use xlink:href="#stroked-gear" />
+                        </svg> Quality Control</div>
+                    <div class="panel-body">
+					<div class="row">
+					<div class="col-sm-9 col-sm-offset-0 ">
+                        <p style="font-size:16px;"><b>QC:</b> High throughput screening is often a complex process and it is important to assess whether the screen has passed QC criteria. QC report of a DSRT screen shows plate statistics and general plate performance parameters. One can use the data generated through QC check points to decide whether the screen performance was good.</p>
+                   	</div>	
+					<div class="col-sm-3 col-sm-offset-0 ">
+						<div class="canvas-wrapper">
+							<div class = "bartitle"><p class = "bartitle">Z' Factor</p></div>	
+							<canvas class="main-chart" id="bar-chart" height="100" width="180"></canvas>
+						</div>
+						</div>
+					</div>
+				   </div>
+                </div>
+            </div>
+			<div class="col-sm-4"><div><div id="mainBubble"></div></div></div>
+  
+
+
+
+        </div>
+
+
+	
+	    
+											<a style="font-size:16px; display:table; margin: auto 0;" href="../All_QC.pdf"><img src="./imgs/zip_.png" height="95" width="95"></img>
+										</a>
+			
+		
+
+	<script>
+
+	</script>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+	 <script src="js/easypiechart.js"></script>
+    <script>
+	
+
+	!function(a){a(document).on("click","ul.nav li.parent > a > span.icon",function(){a(this).find("em:first").toggleClass("glyphicon-minus")}),a(".sidebar span.icon").find("em:first").addClass("glyphicon-plus")}(window.jQuery),$(window).on("resize",function(){$(window).width()>768&&$("#sidebar-collapse").collapse("show")}),$(window).on("resize",function(){$(window).width()<=767&&$("#sidebar-collapse").collapse("hide")});
+
+ 
+	obj = $.getJSON("QC.json");
+	//callback to get repsponce from server to retrieve obj.
+	obj.done( function(json) {
+	
+		//add QC metrics table
+		QCmetrics = obj.responseJSON.QCmetrics;
+		$("#stattab").html(QCmetrics);
+		$("#stattab").attr("data-toggle","table"),$("#stattab").attr("data-row-style","rowStyle"),$("#stattab").attr("data-show-refresh","true"),$("#stattab").attr("data-show-toggle","true"),$("#stattab").attr("data-show-columns","true"),$("#stattab").attr("data-search","true"),$("#stattab").attr("data-select-item-name","toolbar1"),$("#stattab").attr("data-pagination","true"),$("#stattab").attr("data-sort-name","name"),$("#stattab").attr("data-sort-order","desc");
+	
+	
+		//add data-percent graph
+		sum=0,num=0,data_=[],labels_=[];
+		$("#stattab td:nth-child(2)").each(function(){zind=parseFloat($(this).html()); zind>.5&&(sum+=1),num+=1,data_.push(zind),labels_.push("")});
+		perc=parseInt(sum/num*100);
+		
+		$('.metricss').attr("data-percent", perc);
+		$('.metricss>.percent').text(perc + '%');
+		
+		$(function(){$("tr > td:nth-child(2)").each(function(t){var d=["cRed",.5],h=$(this).text();h<d[1]&&$(this).addClass(d[0])}),
+					 $("tr > td:nth-child(3)").each(function(t){var d=["cRed",6],h=$(this).text();h<d[1]&&$(this).addClass(d[0])}),
+					 $("tr > td:nth-child(7)").each(function(t){var d=["cRed",10],h=$(this).text();h>d[1]&&$(this).addClass(d[0])}),
+					 $("tr > td:nth-child(10)").each(function(t){var d=["cRed",10],h=$(this).text();h>d[1]&&$(this).addClass(d[0])}),
+					 $("tr > td:nth-child(13)").each(function(t){var d=["cRed",10],h=$(this).text();h>d[1]&&$(this).addClass(d[0])}),
+					 $("tr > td:nth-child(16)").each(function(t){var d=["cRed",10],h=$(this).text();h>d[1]&&$(this).addClass(d[0])})});
+		
+		//dispay table
+		$(function(){$('[data-toggle="table"]').bootstrapTable()});
+
+		//dispay data-percent graph
+		var barColor; 
+		perc<50?barColor="#f9243f":barColor="#30a5ff";
+		$(function(){$("#easypiechart-blue").easyPieChart({scaleColor:!1,barColor:barColor})});
+		
+		//bar chart data
+		var barChartData = {
+			labels : labels_,
+			datasets : [{
+					fillColor : "rgba(48, 164, 255, 0.2)",
+					strokeColor : "rgba(48, 164, 255, 0.8)",
+					highlightFill : "rgba(48, 164, 255, 0.75)",
+					highlightStroke : "rgba(48, 164, 255, 1)",
+					data : data_}]
+		}
+		window.myBar = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData, {responsive : true});
+	})
+		
+
+
+    </script>
+	
+		
+	  <script>
+   var w=.2*window.innerWidth,h=Math.ceil(1*w),oR=0,nTop=0;
+    
+   var svgContainer=d3.select("#mainBubble"),
+   svg=d3.select("#mainBubble").append("svg").attr("class","mainBubbleSVG").attr("width",w).attr("height",h).on("mouseleave",function(){return resetBubbles(w,h,oR)});
+
+	var root = {"name":"bubble", "children": [
+	{"name":"Report","children":[{"name": "Quality Control","address":"#"},{"name": "Curve fitting","address":"#"},{"name": "DSS","address":"#"}]},
+	{"name": "AgLab", "children":[{"name":"Excess Nutrient","address":"#"},{"name":"Yield Gap","address":"#"},{"name":"Fertilizer","address":"#"}]}]};
+
+     
+        var bubbleObj=svg.selectAll(".topBubble").data(root.children).enter().append("g");nTop=root.children.length,oR=w/(1+3*nTop);
+		var colVals=d3.scale.category20();
+         
+        bubbleObj.append("circle").attr("class", "topBubble").attr("id", function(d,i) {return "topBubble" + i;}).attr("r", function(d) { return oR; })
+            .attr("cx", function(d, i) {return oR*(3*(1+i)-1);}).attr("cy", (h+oR)/3).style("fill", function(d,i) { return colVals(i); }) // #1f77b4
+			.style("opacity",0.3).on("mouseover", function(d,i) {return activateBubble(d,i);});
+         
+             
+        bubbleObj.append("text").attr("class", "topBubbleText").attr("x", function(d, i) {return oR*(3*(1+i)-1);}).attr("y", (h+oR)/3)
+			.style("fill", function(d,i) { return colVals(i); }) // #1f77b4
+			.attr("font-size", 20).attr("text-anchor", "middle").attr("dominant-baseline", "middle").attr("alignment-baseline", "middle")
+			.text(function(d) {return d.name})      
+		    .on("mouseover", function(d,i) {return activateBubble(d,i);});
+			 
+         
+        for(var iB = 0; iB < nTop; iB++)
+        {
+            var childBubbles = svg.selectAll(".childBubble" + iB).data(root.children[iB].children).enter().append("g");
+             
+           childBubbles.append("circle").attr("class","childBubble"+iB).attr("id",function(a,b){return"childBubble_"+iB+"sub_"+b}).attr("r",function(a){return oR/3})
+				.attr("cx",function(a,b){return oR*(3*(iB+1)-1)+1.5*oR*Math.cos(45*(b-1)/180*3.1415926)}).attr("cy",function(a,b){return(h+oR)/3+1.5*oR*Math.sin(45*(b-1)/180*3.1415926)})
+				.attr("cursor","pointer").style("opacity",.5).style("fill","#eee").on("click",function(a,b){window.open(a.address)})
+				.on("mouseover",function(a,b){var c="";c=null==a.note||""==a.note?a.address:a.note,d3.select("#bubbleItemNote").text(c)}).append("svg:title")
+				.text(function(a){return a.address});
+ 
+            childBubbles.append("text").attr("class","childBubbleText"+iB).attr("x",function(a,b){return oR*(3*(iB+1)-1)+1.5*oR*Math.cos(45*(b-1)/180*3.1415926)})
+				.attr("y",function(a,b){return(h+oR)/3+1.5*oR*Math.sin(45*(b-1)/180*3.1415926)}).style("opacity",.5).attr("text-anchor","middle")
+				.style("fill",function(a,b){return colVals(iB)}).attr("font-size",5).attr("cursor","pointer").attr("dominant-baseline","middle")
+				.attr("alignment-baseline","middle").text(function(a){return a.name}).on("click",function(a,b){window.open(a.address)});
+
+        }
+ 
+    
+ 
+    resetBubbles = function (w,h,oR) {
+     
+      svgContainer.style("height",h+"px"); svg.attr("width", w); svg.attr("height",h);       
+ 
+      var t=svg.transition().duration(650);t.selectAll(".topBubble").attr("r",function(a){return oR}).attr("cx",function(a,b){return oR*(3*(1+b)-1)})
+	  .attr("cy",(h+oR)/3),t.selectAll(".topBubbleText").attr("font-size",20).attr("x",function(a,b){return oR*(3*(1+b)-1)}).attr("y",(h+oR)/3);
+     
+      for(var k=0;k<nTop;k++)t.selectAll(".childBubbleText"+k).attr("x",function(a,b){return oR*(3*(k+1)-1)+1.5*oR*Math.cos(45*(b-1)/180*3.1415926)})
+	  .attr("y",function(a,b){return(h+oR)/3+1.5*oR*Math.sin(45*(b-1)/180*3.1415926)}).attr("font-size",5).style("opacity",.5),t.selectAll(".childBubble"+k)
+	  .attr("r",function(a){return oR/3}).style("opacity",.5).attr("cx",function(a,b){return oR*(3*(k+1)-1)+1.5*oR*Math.cos(45*(b-1)/180*3.1415926)})
+	  .attr("cy",function(a,b){return(h+oR)/3+1.5*oR*Math.sin(45*(b-1)/180*3.1415926)});
+    }
+         
+         
+        function activateBubble(d,i) {
+            var t=svg.transition().duration(d3.event.altKey?7500:350);
+     
+			t.selectAll(".topBubble").attr("cx",function(a,b){return i==b?oR*(3*(1+b)-1)-.6*oR*(b-1):b<i?.6*oR*(3*(1+b)-1):oR*(3*nTop+1)-.6*oR*(3*(nTop-b)-1)})
+			.attr("r",function(a,b){return i==b?1.8*oR:.8*oR});
+                     
+            t.selectAll(".topBubbleText").attr("x",function(a,b){return i==b?oR*(3*(1+b)-1)-.6*oR*(b-1):b<i?.6*oR*(3*(1+b)-1):oR*(3*nTop+1)-.6*oR*(3*(nTop-b)-1)})
+			.attr("font-size",function(a,b){return i==b?45:18});
+     
+            var signSide = -1;
+            for(var k = 0; k < nTop; k++) 
+            {
+                signSide=1,k<nTop/2&&(signSide=1);
+                t.selectAll(".childBubbleText"+k).attr("x",function(a,b){return oR*(3*(k+1)-1)-.6*oR*(k-1)+signSide*oR*2.5*Math.cos(45*(b-1)/180*3.1415926)})
+				.attr("y",function(a,b){return(h+oR)/3+signSide*oR*2.5*Math.sin(45*(b-1)/180*3.1415926)}).attr("font-size",function(){return k==i?12:6})
+				.style("opacity",function(){return k==i?1:0}),t.selectAll(".childBubble"+k)
+				.attr("cx",function(a,b){return oR*(3*(k+1)-1)-.6*oR*(k-1)+signSide*oR*2.5*Math.cos(45*(b-1)/180*3.1415926)})
+				.attr("cy",function(a,b){return(h+oR)/3+signSide*oR*2.5*Math.sin(45*(b-1)/180*3.1415926)}).attr("r",function(){return k==i?.55*oR:oR/3})
+				.style("opacity",function(){return k==i?1:0});
+            }                   
+        }
+     
+    window.onresize = resetBubbles;
+</script>
+
+</body>
+
+</html>
